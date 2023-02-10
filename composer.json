@@ -1,0 +1,8 @@
+{
+    "require": {
+        "guzzlehttp/guzzle": "^7.5",
+        "vlucas/phpdotenv": "^5.5",
+        "ext-json": "*",
+        "eluceo/ical": "^2.11"
+    }
+}
