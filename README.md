@@ -40,3 +40,7 @@ To run this script, you will need to add the following environment variables to 
 `NOTION_STATUS_PROPERTY_NAME` Notion property name containing the status
 
 `NOTION_EXCLUDE_STATUS` Notion status to exclude in the iCal feed
+
+## Changelog
+
+Can be found [here](CHANGELOG.md)
