@@ -48,7 +48,7 @@ try {
                     'direction' => 'descending',
                 ]
             ],
-        ]),
+        ], JSON_THROW_ON_ERROR),
         'headers' => [
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $_ENV['NOTION_API_KEY'],
@@ -57,6 +57,8 @@ try {
         ],
     ]);
 } catch (GuzzleException $e) {
+    die($e->getMessage());
+} catch (JsonException $e) {
     die($e->getMessage());
 }
 
@@ -83,8 +85,21 @@ if (null !== $result) {
 
     // Create calendar
     $calendar = new Calendar($events);
+    try {
+        $dateInterval = new DateInterval($_ENV['TTL'] ?? 'PT5M');
+    } catch (Exception $e) {
+        die($e->getMessage());
+    }
+    $calendar->setPublishedTTL($dateInterval);
     $componentFactory = new CalendarFactory();
     $calendarComponent = $componentFactory->createCalendar($calendar);
+
+    if (isset($_ENV['DEBUG_MODE']) && $_ENV['DEBUG_MODE'] === 'true') {
+        echo '<pre>';
+        echo $calendarComponent;
+        echo '</pre>';
+        exit();
+    }
 
     header('Content-Type: text/calendar; charset=utf-8');
     header('Content-Disposition: attachment; filename="cal.ics"');
