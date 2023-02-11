@@ -29,6 +29,8 @@ Make sure you add the key in the 'k' GET variable.
 
 To run this script, you will need to add the following environment variables to your .env file
 
+`DEBUG_MODE` Debugging mode (prints content if true)
+
 `SECRET_KEY` Security key preventing public access
 
 `NOTION_API_KEY` Notion API key
@@ -40,6 +42,8 @@ To run this script, you will need to add the following environment variables to 
 `NOTION_STATUS_PROPERTY_NAME` Notion property name containing the status
 
 `NOTION_EXCLUDE_STATUS` Notion status to exclude in the iCal feed
+
+`TTL` Suggested update frequency for clients in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations) format
 
 ## Changelog
 
