@@ -1,4 +1,9 @@
 # Changelog
+
+## 1.2
+### Fixed
+* Sorting by given property name
+
 ## 1.1
 ### Added
 * Debug mode
