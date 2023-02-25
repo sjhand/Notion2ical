@@ -44,7 +44,7 @@ try {
             ],
             'sorts' => [
                 [
-                    'property' => 'Date',
+                    'property' => $_ENV['NOTION_DATE_PROPERTY_NAME'],
                     'direction' => 'descending',
                 ]
             ],
